@@ -54,14 +54,8 @@ public class Request implements Runnable{
            while ((line = in.readLine()) != null) {
                result += "\n" + line;
            }
-       } catch (UnsupportedEncodingException e) {
-           log.error("UnsupportedEncodingException ",e);
-           e.printStackTrace();
-       } catch (MalformedURLException e) {
-           log.error("MalformedURLException",e);
-           e.printStackTrace();
-       } catch (IOException e) {
-           log.error("MalformedURLException",e);
+       } catch (Exception e) {
+           log.error("getReqeuest happen Exception ",e);
            e.printStackTrace();
        }
         return result;
@@ -90,15 +84,14 @@ public class Request implements Runnable{
 
 
     public void getDate()  {
-        Pair<String , String> pairBlock = null;
-        Pair<String , String> pairSum = null;
+        Pair<String , String> pairBlock;
+        Pair<String , String> pairSum;
         //获取到全网的一些数据
 
         String blockString = getReqeuest(BLOCK);
         String sumString = getReqeuest(SUMMARY);
         if ("".equals(blockString)  || "".equals(sumString)) {
             log.debug("获取不到信息，block【{}】,summary[{}]",blockString,sumString);
-            return;
         }else {
             pairBlock = parseJson(blockString);
             pairSum = parseJson(sumString);

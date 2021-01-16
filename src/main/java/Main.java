@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args)  {
-
-        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+//
+//        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
         try {
+            ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
             executorService.scheduleWithFixedDelay(
                     new Request(),
                     10 * 1000,
