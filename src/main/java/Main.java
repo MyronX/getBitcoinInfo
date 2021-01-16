@@ -16,7 +16,7 @@ public class Main {
             ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
             executorService.scheduleWithFixedDelay(
                     new Request(),
-                    10 * 1000,
+                    0 * 1000,
                     15 * 1000,
                     TimeUnit.MILLISECONDS
             );
