@@ -114,8 +114,8 @@ public class Request implements Runnable{
 
                     //更新数据
                     lastTxCounts = currTxCounts;
+                    currMaxTxCounts = currTxCounts;
                     log.info("区块高度为[{}]，该epoch发生的交易数为[{}]", blockHeight, newAddTxCounts);
-                    String str = "区块高度为[{" + blockHeight + "}]，该epoch发生的交易数为[{" + newAddTxCounts + "}]";
 
                 } else {
                     log.debug("查询交易池，当前交易池的交易总数为【{}】", currTxCounts);
@@ -126,7 +126,8 @@ public class Request implements Runnable{
             }
 
         }catch (Exception e){
-            System.out.println("getData 异常，请检查");
+            log.error("getData 异常，请检查" + e);
+            System.out.println("getData 异常，请检查" + e);
         }
 
     }

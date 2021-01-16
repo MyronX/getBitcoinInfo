@@ -17,7 +17,7 @@ public class Main {
             executorService.scheduleWithFixedDelay(
                     new Request(),
                     0 * 1000,
-                    15 * 1000,
+                    30 * 1000,
                     TimeUnit.MILLISECONDS
             );
         }catch (Exception e) {
